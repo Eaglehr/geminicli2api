@@ -18,4 +18,4 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         # 注意：下面这一行必须修改为你自己的 Hugging Face Space 地址！
         # 格式：https://<你的HF用户名>:$HF_TOKEN@huggingface.co/spaces/<你的HF用户名>/<Space名字>
-        run: git push --force https://eagleshen2023:$HF_TOKEN@huggingface.co/spaces/eagleshen2023/gemini-api-proxy main
+        run: git push --force https://<你的HF用户名>:$HF_TOKEN@huggingface.co/spaces/<你的HF用户名>/<Space名字> main
