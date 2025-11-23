@@ -1,0 +1,21 @@
+name: Sync to Hugging Face Hub
+on:
+  push:
+    branches: [main]
+  # 允许你手动点击按钮触发
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        # 注意：下面这一行必须修改为你自己的 Hugging Face Space 地址！
+        # 格式：https://<你的HF用户名>:$HF_TOKEN@huggingface.co/spaces/<你的HF用户名>/<Space名字>
+        run: git push --force https://eagleshen2023:$HF_TOKEN@huggingface.co/spaces/eagleshen2023/gemini-api-proxy main
